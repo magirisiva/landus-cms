@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_dynamic_zone_our_strengths",
+  "info": {
+    "displayName": "CardSection"
+  },
+  "options": {},
+  "attributes": {
+    "theme": {
+      "type": "component",
+      "component": "shared.theme",
+      "repeatable": false
+    },
+    "headerSection": {
+      "type": "component",
+      "component": "shared.section-header",
+      "repeatable": false
+    },
+    "card": {
+      "type": "component",
+      "component": "shared.card",
+      "repeatable": true
+    },
+    "section_name": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

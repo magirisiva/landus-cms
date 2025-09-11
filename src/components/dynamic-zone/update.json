@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_dynamic_zone_updates",
+  "info": {
+    "displayName": "News-Blogs-Podcasts"
+  },
+  "options": {},
+  "attributes": {
+    "theme": {
+      "type": "enumeration",
+      "default": "light",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "headerSection": {
+      "type": "component",
+      "component": "shared.section-header",
+      "repeatable": false
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

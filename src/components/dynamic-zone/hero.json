@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_dynamic_zone_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "backgroundType": {
+      "type": "enumeration",
+      "required": true,
+      "default": "image",
+      "enum": [
+        "image",
+        "video"
+      ]
+    },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "videoFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "default": 0.35
+    }
+  },
+  "config": {}
+}

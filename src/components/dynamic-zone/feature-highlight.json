@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_dynamic_zone_feature_highlights",
+  "info": {
+    "displayName": "MediaTeaser"
+  },
+  "options": {},
+  "attributes": {
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "layout": {
+      "type": "enumeration",
+      "default": "content-left_media-right",
+      "enum": [
+        "content-left_media-right",
+        "content-right_media-left"
+      ]
+    },
+    "SectionHeader": {
+      "type": "component",
+      "component": "shared.section-header",
+      "repeatable": false
+    },
+    "stat": {
+      "type": "component",
+      "component": "shared.stat",
+      "repeatable": false
+    },
+    "sideImages": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
