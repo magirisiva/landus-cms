@@ -1,17 +1,17 @@
 {
-  "collectionName": "components_dynamic_zone_updates",
+  "collectionName": "components_sections_content_hub_sections",
   "info": {
-    "displayName": "News-Blogs-Podcasts"
+    "displayName": "ContentHubSection"
   },
   "options": {},
   "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
     "theme": {
-      "type": "enumeration",
-      "default": "light",
-      "enum": [
-        "light",
-        "dark"
-      ]
+      "type": "component",
+      "component": "shared.theme",
+      "repeatable": false
     },
     "headerSection": {
       "type": "component",
@@ -23,10 +23,15 @@
       "relation": "oneToMany",
       "target": "api::category.category"
     },
-    "button": {
+    "links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "buttons": {
       "type": "component",
       "component": "shared.button",
-      "repeatable": false
+      "repeatable": true
     }
   },
   "config": {}

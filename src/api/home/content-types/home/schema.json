@@ -25,9 +25,12 @@
     "home": {
       "type": "dynamiczone",
       "components": [
-        "dynamic-zone.hero",
-        "dynamic-zone.update",
-        "dynamic-zone.our-strengths"
+        "sections.hero-section",
+        "sections.quick-facts-section",
+        "sections.media-teaser-section",
+        "sections.difference-section",
+        "sections.content-hub-section",
+        "sections.card-section"
       ]
     }
   }

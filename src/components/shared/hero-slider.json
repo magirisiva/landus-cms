@@ -1,35 +1,28 @@
 {
-  "collectionName": "components_social_media_card_cards",
+  "collectionName": "components_shared_hero_sliders",
   "info": {
-    "displayName": "Card"
+    "displayName": "HeroSlider"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "highlight": {
       "type": "string"
     },
-    "subTitle": {
+    "heading": {
       "type": "string"
     },
     "description": {
-      "type": "text"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "type": "string"
     },
     "link": {
       "type": "component",
       "component": "shared.link",
-      "repeatable": true
+      "repeatable": false
     },
     "button": {
       "type": "component",
       "component": "shared.button",
-      "repeatable": true
+      "repeatable": false
     }
   },
   "config": {}

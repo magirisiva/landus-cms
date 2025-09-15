@@ -1,10 +1,13 @@
 {
-  "collectionName": "components_dynamic_zone_our_strengths",
+  "collectionName": "components_sections_card_sections",
   "info": {
     "displayName": "CardSection"
   },
   "options": {},
   "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
     "theme": {
       "type": "component",
       "component": "shared.theme",
@@ -19,9 +22,6 @@
       "type": "component",
       "component": "shared.card",
       "repeatable": true
-    },
-    "section_name": {
-      "type": "string"
     }
   },
   "config": {}

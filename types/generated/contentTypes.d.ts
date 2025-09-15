@@ -376,7 +376,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
-    displayName: 'Article';
+    displayName: 'Articles';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -411,7 +411,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'Categories';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -450,6 +450,10 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bottomBar: Schema.Attribute.Component<'footer.bottom-bar', false>;
+    brandBar: Schema.Attribute.Component<'footer.brand-bar', false>;
+    columns: Schema.Attribute.Component<'footer.footer-column', true>;
+    contact: Schema.Attribute.Component<'footer.contact-block', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -493,6 +497,42 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
+  collectionName: 'headers';
+  info: {
+    displayName: 'Header';
+    pluralName: 'headers';
+    singularName: 'header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AnnouncementBar: Schema.Attribute.Component<
+      'banner.announcement-bar',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    darkLogo: Schema.Attribute.Component<'shared.media-link', false>;
+    lightLogo: Schema.Attribute.Component<'shared.media-link', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header.header'
+    > &
+      Schema.Attribute.Private;
+    navItems: Schema.Attribute.Component<'navigation.top-nav-item', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    rightCtas: Schema.Attribute.Component<'navigation.link', true>;
+    TopBar: Schema.Attribute.Component<'navigation.top-bar', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -509,7 +549,14 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.String;
     home: Schema.Attribute.DynamicZone<
-      ['dynamic-zone.hero', 'dynamic-zone.update', 'dynamic-zone.our-strengths']
+      [
+        'sections.hero-section',
+        'sections.quick-facts-section',
+        'sections.media-teaser-section',
+        'sections.difference-section',
+        'sections.content-hub-section',
+        'sections.card-section',
+      ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
@@ -526,7 +573,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    displayName: 'Page';
+    displayName: 'Pages';
     pluralName: 'pages';
     singularName: 'page';
   };
@@ -534,7 +581,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['dynamic-zone.feature-highlight']>;
+    blocks: Schema.Attribute.DynamicZone<[]>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1063,6 +1110,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
+      'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::page.page': ApiPagePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;

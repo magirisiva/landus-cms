@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_shared_social_media_icon_links",
+  "collectionName": "components_shared_media_links",
   "info": {
-    "displayName": "SocialMediaIconLinks"
+    "displayName": "MediaLink"
   },
   "options": {},
   "attributes": {
@@ -12,10 +12,13 @@
         "images"
       ]
     },
-    "Link": {
+    "link": {
       "type": "component",
       "component": "shared.link",
       "repeatable": false
+    },
+    "alt": {
+      "type": "string"
     }
   },
   "config": {}

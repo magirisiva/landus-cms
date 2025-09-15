@@ -1,69 +1,66 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface DynamicZoneFeatureHighlight extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_zone_feature_highlights';
+export interface BannerAnnouncementBar extends Struct.ComponentSchema {
+  collectionName: 'components_banner_announcement_bars';
   info: {
-    displayName: 'MediaTeaser';
+    displayName: 'AnnouncementBar';
   };
   attributes: {
-    button: Schema.Attribute.Component<'shared.button', false>;
-    layout: Schema.Attribute.Enumeration<
-      ['content-left_media-right', 'content-right_media-left']
-    > &
-      Schema.Attribute.DefaultTo<'content-left_media-right'>;
+    enabled: Schema.Attribute.Boolean;
     link: Schema.Attribute.Component<'shared.link', false>;
-    SectionHeader: Schema.Attribute.Component<'shared.section-header', false>;
-    sideImages: Schema.Attribute.Media<'images', true>;
-    stat: Schema.Attribute.Component<'shared.stat', false>;
-    theme: Schema.Attribute.Enumeration<['light', 'dark']>;
+    message: Schema.Attribute.Text;
   };
 }
 
-export interface DynamicZoneHero extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_zone_heroes';
+export interface FooterBottomBar extends Struct.ComponentSchema {
+  collectionName: 'components_footer_bottom_bars';
   info: {
-    displayName: 'Hero';
+    displayName: 'BottomBar';
   };
   attributes: {
-    backgroundType: Schema.Attribute.Enumeration<['image', 'video']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'image'>;
-    bgImage: Schema.Attribute.Media<'images'>;
-    overlayColor: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'#000000'>;
-    overlayOpacity: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0.35>;
-    videoFile: Schema.Attribute.Media<'videos'>;
-    videoUrl: Schema.Attribute.String;
+    copyrightText: Schema.Attribute.Text;
+    legalLinks: Schema.Attribute.Component<'shared.link', true>;
+    MediaLink: Schema.Attribute.Component<'shared.media-link', true>;
   };
 }
 
-export interface DynamicZoneOurStrengths extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_zone_our_strengths';
+export interface FooterBrandBar extends Struct.ComponentSchema {
+  collectionName: 'components_footer_brand_bars';
   info: {
-    displayName: 'CardSection';
+    displayName: 'BrandBar';
   };
   attributes: {
-    card: Schema.Attribute.Component<'shared.card', true>;
-    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
-    section_name: Schema.Attribute.String;
-    theme: Schema.Attribute.Component<'shared.theme', false>;
-  };
-}
-
-export interface DynamicZoneUpdate extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_zone_updates';
-  info: {
-    displayName: 'News-Blogs-Podcasts';
-  };
-  attributes: {
-    button: Schema.Attribute.Component<'shared.button', false>;
-    categories: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
+    logo: Schema.Attribute.Media<'images'>;
+    logoLink: Schema.Attribute.String;
+    socialLink: Schema.Attribute.Component<
+      'shared.social-media-icon-links',
+      true
     >;
-    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
-    theme: Schema.Attribute.Enumeration<['light', 'dark']> &
-      Schema.Attribute.DefaultTo<'light'>;
+    taglineCta: Schema.Attribute.Component<'shared.button', false>;
+  };
+}
+
+export interface FooterContactBlock extends Struct.ComponentSchema {
+  collectionName: 'components_footer_contact_blocks';
+  info: {
+    displayName: 'ContactBlock';
+  };
+  attributes: {
+    address: Schema.Attribute.Component<'shared.address', true>;
+    email: Schema.Attribute.Email;
+    link: Schema.Attribute.Component<'navigation.link', true>;
+    phone: Schema.Attribute.String;
+  };
+}
+
+export interface FooterFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_columns';
+  info: {
+    displayName: 'footerColumn';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'navigation.link', true>;
   };
 }
 
@@ -75,16 +72,170 @@ export interface GlobalFooter extends Struct.ComponentSchema {
   attributes: {};
 }
 
-export interface SectionsHeroSlide extends Struct.ComponentSchema {
-  collectionName: 'components_sections_hero_slides';
+export interface NavigationLink extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_links';
   info: {
-    displayName: 'hero-slide';
+    displayName: 'Link';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'shared.button', true>;
+    badge: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    heading: Schema.Attribute.String;
-    subheading: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    target: Schema.Attribute.Enumeration<
+      ['_blank', '_self', '_parent', '_top']
+    >;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface NavigationNavGroup extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_nav_groups';
+  info: {
+    displayName: 'NavGroup';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'navigation.link', true>;
+    showDivider: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface NavigationTopBar extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_top_bars';
+  info: {
+    displayName: 'TopBar';
+  };
+  attributes: {
+    link: Schema.Attribute.Component<'shared.link', true>;
+    SocialLink: Schema.Attribute.Component<
+      'shared.social-media-icon-links',
+      true
+    >;
+  };
+}
+
+export interface NavigationTopNavItem extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_top_nav_items';
+  info: {
+    displayName: 'TopNavItem';
+  };
+  attributes: {
+    groups: Schema.Attribute.Component<'navigation.nav-group', true>;
+    label: Schema.Attribute.String;
+    menuType: Schema.Attribute.Enumeration<['none', 'simple', 'mega']>;
+    simpleLinks: Schema.Attribute.Component<'navigation.link', true>;
+  };
+}
+
+export interface SectionsCardSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_card_sections';
+  info: {
+    displayName: 'CardSection';
+  };
+  attributes: {
+    card: Schema.Attribute.Component<'shared.card', true>;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
+    sectionName: Schema.Attribute.String;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
+  };
+}
+
+export interface SectionsCareerSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_career_sections';
+  info: {
+    displayName: 'CareerSection';
+  };
+  attributes: {
+    sectionName: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsContentHubSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_content_hub_sections';
+  info: {
+    displayName: 'ContentHubSection';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'shared.button', true>;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    sectionName: Schema.Attribute.String;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
+  };
+}
+
+export interface SectionsDifferenceSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_difference_sections';
+  info: {
+    displayName: 'DifferenceSection';
+  };
+  attributes: {
+    sectionName: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+  };
+  attributes: {
+    backgroundType: Schema.Attribute.Enumeration<['image', 'video']>;
+    bgImage: Schema.Attribute.Media<'images'>;
+    heroSlider: Schema.Attribute.Component<'shared.hero-slider', true>;
+    overlayColor: Schema.Attribute.String;
+    sectionName: Schema.Attribute.String;
+    videoFile: Schema.Attribute.Media<'videos'>;
+    videoUrl: Schema.Attribute.Text;
+  };
+}
+
+export interface SectionsMediaTeaserSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_media_teaser_sections';
+  info: {
+    displayName: 'MediaTeaserSection';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'shared.button', true>;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
+    images: Schema.Attribute.Media<'images', true>;
+    layout: Schema.Attribute.Enumeration<['content-left', 'content-right']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'content-left'>;
+    link: Schema.Attribute.Component<'shared.link', true>;
+    sectionName: Schema.Attribute.String;
+    stat: Schema.Attribute.Component<'shared.stat', false>;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
+  };
+}
+
+export interface SectionsQuickFactsSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_quick_facts_sections';
+  info: {
+    displayName: 'QuickFactsSection';
+  };
+  attributes: {
+    sectionName: Schema.Attribute.String;
+  };
+}
+
+export interface SharedAddress extends Struct.ComponentSchema {
+  collectionName: 'components_shared_addresses';
+  info: {
+    displayName: 'address';
+  };
+  attributes: {
+    city: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    line1: Schema.Attribute.String;
+    line2: Schema.Attribute.String;
+    state: Schema.Attribute.String;
+    zip: Schema.Attribute.String;
   };
 }
 
@@ -129,6 +280,35 @@ export interface SharedForm extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface SharedHeaderFooterLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_header_footer_links';
+  info: {
+    displayName: 'HeaderFooterLinks';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    target: Schema.Attribute.Enumeration<
+      ['_blank', '_self', '_parent', '_top']
+    >;
+    text: Schema.Attribute.String;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface SharedHeroSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_sliders';
+  info: {
+    displayName: 'HeroSlider';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
+    description: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    highlight: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'shared.link', false>;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -143,10 +323,22 @@ export interface SharedLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMediaLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_media_links';
+  info: {
+    displayName: 'MediaLink';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+  };
+}
+
 export interface SharedSectionHeader extends Struct.ComponentSchema {
   collectionName: 'components_shared_section_headers';
   info: {
-    displayName: 'section-header';
+    displayName: 'HeaderSection';
   };
   attributes: {
     description: Schema.Attribute.Text;
@@ -173,18 +365,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
 export interface SharedSocialMediaIconLinks extends Struct.ComponentSchema {
   collectionName: 'components_shared_social_media_icon_links';
   info: {
-    displayName: 'Social_Media_Icon_Links';
+    displayName: 'SocialMediaIconLinks';
   };
   attributes: {
     image: Schema.Attribute.Media<'images'>;
-    Link: Schema.Attribute.Component<'shared.link', true>;
+    Link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
 export interface SharedStat extends Struct.ComponentSchema {
   collectionName: 'components_shared_stats';
   info: {
-    displayName: 'stat';
+    displayName: 'Stat';
   };
   attributes: {
     label: Schema.Attribute.String;
@@ -203,40 +395,39 @@ export interface SharedTheme extends Struct.ComponentSchema {
   };
 }
 
-export interface SocialMediaCardCard extends Struct.ComponentSchema {
-  collectionName: 'components_social_media_card_cards';
-  info: {
-    displayName: 'Card';
-  };
-  attributes: {
-    button: Schema.Attribute.Component<'shared.button', true>;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'>;
-    link: Schema.Attribute.Component<'shared.link', true>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'dynamic-zone.feature-highlight': DynamicZoneFeatureHighlight;
-      'dynamic-zone.hero': DynamicZoneHero;
-      'dynamic-zone.our-strengths': DynamicZoneOurStrengths;
-      'dynamic-zone.update': DynamicZoneUpdate;
+      'banner.announcement-bar': BannerAnnouncementBar;
+      'footer.bottom-bar': FooterBottomBar;
+      'footer.brand-bar': FooterBrandBar;
+      'footer.contact-block': FooterContactBlock;
+      'footer.footer-column': FooterFooterColumn;
       'global.footer': GlobalFooter;
-      'sections.hero-slide': SectionsHeroSlide;
+      'navigation.link': NavigationLink;
+      'navigation.nav-group': NavigationNavGroup;
+      'navigation.top-bar': NavigationTopBar;
+      'navigation.top-nav-item': NavigationTopNavItem;
+      'sections.card-section': SectionsCardSection;
+      'sections.career-section': SectionsCareerSection;
+      'sections.content-hub-section': SectionsContentHubSection;
+      'sections.difference-section': SectionsDifferenceSection;
+      'sections.hero-section': SectionsHeroSection;
+      'sections.media-teaser-section': SectionsMediaTeaserSection;
+      'sections.quick-facts-section': SectionsQuickFactsSection;
+      'shared.address': SharedAddress;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
       'shared.form': SharedForm;
+      'shared.header-footer-links': SharedHeaderFooterLinks;
+      'shared.hero-slider': SharedHeroSlider;
       'shared.link': SharedLink;
+      'shared.media-link': SharedMediaLink;
       'shared.section-header': SharedSectionHeader;
       'shared.seo': SharedSeo;
       'shared.social-media-icon-links': SharedSocialMediaIconLinks;
       'shared.stat': SharedStat;
       'shared.theme': SharedTheme;
-      'social-media-card.card': SocialMediaCardCard;
     }
   }
 }

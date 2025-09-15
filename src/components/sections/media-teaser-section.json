@@ -1,26 +1,19 @@
 {
-  "collectionName": "components_dynamic_zone_feature_highlights",
+  "collectionName": "components_sections_media_teaser_sections",
   "info": {
-    "displayName": "MediaTeaser"
+    "displayName": "MediaTeaserSection"
   },
   "options": {},
   "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
     "theme": {
-      "type": "enumeration",
-      "enum": [
-        "light",
-        "dark"
-      ]
+      "type": "component",
+      "component": "shared.theme",
+      "repeatable": false
     },
-    "layout": {
-      "type": "enumeration",
-      "default": "content-left_media-right",
-      "enum": [
-        "content-left_media-right",
-        "content-right_media-left"
-      ]
-    },
-    "SectionHeader": {
+    "headerSection": {
       "type": "component",
       "component": "shared.section-header",
       "repeatable": false
@@ -30,7 +23,7 @@
       "component": "shared.stat",
       "repeatable": false
     },
-    "sideImages": {
+    "images": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
@@ -40,12 +33,21 @@
     "link": {
       "type": "component",
       "component": "shared.link",
-      "repeatable": false
+      "repeatable": true
     },
     "button": {
       "type": "component",
       "component": "shared.button",
-      "repeatable": false
+      "repeatable": true
+    },
+    "layout": {
+      "type": "enumeration",
+      "required": true,
+      "default": "content-left",
+      "enum": [
+        "content-left",
+        "content-right"
+      ]
     }
   },
   "config": {}

@@ -10,5 +10,26 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "brandBar": {
+      "type": "component",
+      "component": "footer.brand-bar",
+      "repeatable": false
+    },
+    "columns": {
+      "type": "component",
+      "component": "footer.footer-column",
+      "repeatable": true
+    },
+    "contact": {
+      "type": "component",
+      "component": "footer.contact-block",
+      "repeatable": false
+    },
+    "bottomBar": {
+      "type": "component",
+      "component": "footer.bottom-bar",
+      "repeatable": false
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_section_headers",
   "info": {
-    "displayName": "section-header"
+    "displayName": "HeaderSection"
   },
   "options": {},
   "attributes": {

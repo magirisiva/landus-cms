@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_footer_brand_bars",
+  "info": {
+    "displayName": "BrandBar"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logoLink": {
+      "type": "string"
+    },
+    "taglineCta": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "socialLink": {
+      "type": "component",
+      "component": "shared.social-media-icon-links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

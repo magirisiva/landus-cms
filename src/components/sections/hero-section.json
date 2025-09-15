@@ -1,24 +1,18 @@
 {
-  "collectionName": "components_dynamic_zone_heroes",
+  "collectionName": "components_sections_hero_sections",
   "info": {
-    "displayName": "Hero"
+    "displayName": "HeroSection"
   },
   "options": {},
   "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
     "backgroundType": {
       "type": "enumeration",
-      "required": true,
-      "default": "image",
       "enum": [
         "image",
         "video"
-      ]
-    },
-    "bgImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
       ]
     },
     "videoFile": {
@@ -28,16 +22,23 @@
         "videos"
       ]
     },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "videoUrl": {
-      "type": "string"
+      "type": "text"
     },
     "overlayColor": {
-      "type": "string",
-      "default": "#000000"
+      "type": "string"
     },
-    "overlayOpacity": {
-      "type": "decimal",
-      "default": 0.35
+    "heroSlider": {
+      "type": "component",
+      "component": "shared.hero-slider",
+      "repeatable": true
     }
   },
   "config": {}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_difference_sections",
+  "info": {
+    "displayName": "DifferenceSection"
+  },
+  "options": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

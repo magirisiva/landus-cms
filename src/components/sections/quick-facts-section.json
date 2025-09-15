@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_quick_facts_sections",
+  "info": {
+    "displayName": "QuickFactsSection"
+  },
+  "options": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

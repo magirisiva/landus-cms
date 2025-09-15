@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_career_sections",
+  "info": {
+    "displayName": "CareerSection"
+  },
+  "options": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
