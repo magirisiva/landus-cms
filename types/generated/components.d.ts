@@ -37,6 +37,7 @@ export interface FooterBrandBar extends Struct.ComponentSchema {
       true
     >;
     taglineCta: Schema.Attribute.Component<'shared.button', false>;
+    TaglineCTAPreText: Schema.Attribute.String;
   };
 }
 
