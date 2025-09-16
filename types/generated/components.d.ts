@@ -186,7 +186,10 @@ export interface SectionsDifferenceSection extends Struct.ComponentSchema {
     displayName: 'DifferenceSection';
   };
   attributes: {
+    Differences: Schema.Attribute.Component<'shared.difference', true>;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
     sectionName: Schema.Attribute.String;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
   };
 }
 
@@ -231,7 +234,11 @@ export interface SectionsQuickFactsSection extends Struct.ComponentSchema {
     displayName: 'QuickFactsSection';
   };
   attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
     sectionName: Schema.Attribute.String;
+    stats: Schema.Attribute.Component<'shared.stat', true>;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
   };
 }
 
@@ -274,11 +281,23 @@ export interface SharedCard extends Struct.ComponentSchema {
     displayName: 'Card';
   };
   attributes: {
-    button: Schema.Attribute.Component<'shared.button', true>;
+    button: Schema.Attribute.Component<'shared.button', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
-    link: Schema.Attribute.Component<'shared.link', true>;
+    link: Schema.Attribute.Component<'shared.link', false>;
     subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedDifference extends Struct.ComponentSchema {
+  collectionName: 'components_shared_differences';
+  info: {
+    displayName: 'Difference';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Component<'shared.media-link', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -390,6 +409,7 @@ export interface SharedStat extends Struct.ComponentSchema {
     displayName: 'Stat';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
     suffix: Schema.Attribute.String;
     value: Schema.Attribute.String;
@@ -430,6 +450,7 @@ declare module '@strapi/strapi' {
       'shared.address': SharedAddress;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
+      'shared.difference': SharedDifference;
       'shared.form': SharedForm;
       'shared.header-footer-links': SharedHeaderFooterLinks;
       'shared.hero-slider': SharedHeroSlider;
