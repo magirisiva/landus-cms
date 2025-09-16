@@ -59,8 +59,19 @@ export interface FooterFooterColumn extends Struct.ComponentSchema {
     displayName: 'footerColumn';
   };
   attributes: {
+    footerGroup: Schema.Attribute.Component<'footer.footer-group', true>;
     heading: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'navigation.link', true>;
+  };
+}
+
+export interface FooterFooterGroup extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_groups';
+  info: {
+    displayName: 'FooterGroup';
+  };
+  attributes: {
+    footerLinks: Schema.Attribute.Component<'navigation.link', true>;
+    SubHeading: Schema.Attribute.String;
   };
 }
 
@@ -403,6 +414,7 @@ declare module '@strapi/strapi' {
       'footer.brand-bar': FooterBrandBar;
       'footer.contact-block': FooterContactBlock;
       'footer.footer-column': FooterFooterColumn;
+      'footer.footer-group': FooterFooterGroup;
       'global.footer': GlobalFooter;
       'navigation.link': NavigationLink;
       'navigation.nav-group': NavigationNavGroup;
