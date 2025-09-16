@@ -159,8 +159,8 @@ export interface SectionsCareerSection extends Struct.ComponentSchema {
     displayName: 'CareerSection';
   };
   attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
     careersInfo: Schema.Attribute.Component<'shared.careers-info', true>;
-    explore: Schema.Attribute.Component<'shared.button', false>;
     headerSection: Schema.Attribute.Component<'shared.section-header', false>;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     sectionName: Schema.Attribute.String;

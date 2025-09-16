@@ -23,7 +23,7 @@
       "component": "shared.careers-info",
       "repeatable": true
     },
-    "explore": {
+    "button": {
       "type": "component",
       "component": "shared.button",
       "repeatable": false
