@@ -17,12 +17,12 @@
     "link": {
       "type": "component",
       "component": "shared.link",
-      "repeatable": true
+      "repeatable": false
     },
     "button": {
       "type": "component",
       "component": "shared.button",
-      "repeatable": true
+      "repeatable": false
     },
     "image": {
       "type": "media",
