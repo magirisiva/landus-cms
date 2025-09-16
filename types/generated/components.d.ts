@@ -159,7 +159,12 @@ export interface SectionsCareerSection extends Struct.ComponentSchema {
     displayName: 'CareerSection';
   };
   attributes: {
+    careersInfo: Schema.Attribute.Component<'shared.careers-info', true>;
+    explore: Schema.Attribute.Component<'shared.button', false>;
+    headerSection: Schema.Attribute.Component<'shared.section-header', false>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     sectionName: Schema.Attribute.String;
+    theme: Schema.Attribute.Component<'shared.theme', false>;
   };
 }
 
@@ -288,6 +293,17 @@ export interface SharedCard extends Struct.ComponentSchema {
     link: Schema.Attribute.Component<'shared.link', false>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCareersInfo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_careers_infos';
+  info: {
+    displayName: 'careersInfo';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -451,6 +467,7 @@ declare module '@strapi/strapi' {
       'shared.address': SharedAddress;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
+      'shared.careers-info': SharedCareersInfo;
       'shared.difference': SharedDifference;
       'shared.form': SharedForm;
       'shared.header-footer-links': SharedHeaderFooterLinks;
