@@ -15,6 +15,9 @@
     "logoLink": {
       "type": "string"
     },
+    "TaglineCTAPreText": {
+      "type": "string"
+    },
     "taglineCta": {
       "type": "component",
       "component": "shared.button",

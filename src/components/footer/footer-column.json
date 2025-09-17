@@ -8,9 +8,9 @@
     "heading": {
       "type": "string"
     },
-    "links": {
+    "footerGroup": {
       "type": "component",
-      "component": "navigation.link",
+      "component": "footer.footer-group",
       "repeatable": true
     }
   },

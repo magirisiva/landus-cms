@@ -30,7 +30,8 @@
         "sections.media-teaser-section",
         "sections.difference-section",
         "sections.content-hub-section",
-        "sections.card-section"
+        "sections.card-section",
+        "sections.career-section"
       ]
     }
   }
